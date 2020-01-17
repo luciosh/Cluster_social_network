@@ -1,4 +1,4 @@
-si = criar_solucao_inicial;
+si = criarSol(10,2);
 temp = 100;
 while tempo_de_execução < 60;
   temp = 0,99*temp;

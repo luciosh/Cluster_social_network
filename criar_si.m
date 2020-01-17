@@ -37,7 +37,7 @@ function [matrizGrupos] = criarSol(populacao,grupos)
         endif
       end
       count++;
-      display(matrizGrupos);
+      %display(matrizGrupos);
     endfor
   endfor
 end

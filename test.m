@@ -1,3 +1,3 @@
 clear
 clc
-m = criarSol(9,3);
+m= criarSol(9,3);
