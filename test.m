@@ -1,3 +1,4 @@
 clear
 clc
-m= criarSol(9,3);
+[mGrupos,mRef] = criarSol(9,3);
+qualidade=verifSol(mGrupos,mRef);

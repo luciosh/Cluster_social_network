@@ -1,26 +1,30 @@
 clear
 clc
-function [matrizGrupos] = criarSol(populacao,grupos)
+function [matrizGrupos,matrizRef] = criarSol(populacao,grupos)
   %criar matriz aleatória
-  matriz = randi(3,populacao,populacao);
+  matrizRef = randi(3,populacao,populacao);
   %substituir valores aleatorios por -1,0,1.
   for i=1:populacao
     for j=1:populacao
       if(j>i)
-        if(matriz(i,j)==1)
-          matriz(i,j)=-1;
-        else if(matriz(i,j)==2)
-                matriz(i,j) = 0;
+        if(matrizRef(i,j)==1)
+          matrizRef(i,j)=-1;
+          matrizRef(j,i)=-1;
+        else if(matrizRef(i,j)==2)
+                matrizRef(i,j) = 0;
+                matrizRef(j,i) = 0;
              else
-               matriz(i,j) = 1;
+               matrizRef(i,j) = 1;
+               matrizRef(j,i) = 1;
              end
         end
-      else
-        matriz(i,j)=nan;
+      else if(i==j)
+            matrizRef(i,j)=nan;
+           end
       endif
     endfor
   endfor
-  %display(matriz);
+  display(matrizRef);
   %criar grupos aleatórios
   pessoas=populacao/grupos;
   matrizGrupos=zeros(grupos,pessoas);
@@ -37,7 +41,7 @@ function [matrizGrupos] = criarSol(populacao,grupos)
         endif
       end
       count++;
-      %display(matrizGrupos);
+      display(matrizGrupos);
     endfor
   endfor
 end
