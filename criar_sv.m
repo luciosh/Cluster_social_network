@@ -2,7 +2,7 @@ clear
 clc
 function [sv] = solucaoVizinha(mG)
   [grupos,pessoas] = size(mG);
-  display(mG);
+  %display(mG);
   %sortear grupos
   Gsort=zeros(1,2);
   while(Gsort(1)==Gsort(2))

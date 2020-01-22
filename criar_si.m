@@ -24,7 +24,7 @@ function [matrizGrupos,matrizRef] = criarSol(populacao,grupos)
       endif
     endfor
   endfor
-  display(matrizRef);
+  %display(matrizRef);
   %criar grupos aleatórios
   pessoas=populacao/grupos;
   matrizGrupos=zeros(grupos,pessoas);
@@ -41,7 +41,7 @@ function [matrizGrupos,matrizRef] = criarSol(populacao,grupos)
         endif
       end
       count++;
-      display(matrizGrupos);
+      %display(matrizGrupos);
     endfor
   endfor
 end
