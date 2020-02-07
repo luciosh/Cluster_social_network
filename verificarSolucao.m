@@ -1,7 +1,10 @@
 %funcao que verifica qualidade da solucao encontrada fazendo a soma das relacoes
+clear
+clc
 function [qualidade] = verifSol(solucao,matriz)
   [grupos,pessoas]=size(solucao);
   soma=0;
+
   for g=1:grupos
     for i=1:pessoas-1
       for j=i+1:pessoas

@@ -6,7 +6,8 @@
 % a método de busca utilizado foi o Simulated Annealing.
 % Autores: Sérgio e Jadson
 % srg.lcns@gmail.com
-
+clear
+clc
 %Input de dados
 populacao = input("Escolha a quantidade de pessoas: ");
 grupos = input("Escolha a quantidade de grupos: ");
@@ -61,8 +62,17 @@ toc
 %mostra os grupos formados da melhor solucao
 display(sf);
 %mostra em qual rodada foi encontrada a melhor solucao e qual é o resultado
-display([num2str(countSf)," - ",num2str(verifSol(sf,mRef))]);
-
+printf("Solucao encontrada na rodada: ");
+display(countSf);
+printf("Resultado da melhor solucao: ");
+[soma,rb,rn,rr]=verifSolF(sf,mRef);
+display(soma);
+printf("Relações boas: ");
+display(rb);
+printf("Relações neutras: ");
+display(rn);
+printf("Relações ruins: ");
+display(rr);
 %plota o grafico
 plot(vetorsi);
 hold on;

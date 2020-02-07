@@ -1,5 +1,7 @@
 %funcao que gera solucao vizinha trocando 2 pessoas de grupo.
 %o parametro recebido é a matriz dos grupos mG
+clear 
+clc
 function [sv] = solucaoVizinha(mG)
   %vetor que recebe quantidade de grupos e de pessoas
   [grupos,pessoas] = size(mG);
