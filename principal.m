@@ -62,6 +62,7 @@ toc
 %mostra os grupos formados da melhor solucao
 display(sf);
 %mostra em qual rodada foi encontrada a melhor solucao e qual é o resultado
+%mostra tambem a quantidade de relacoes boas, ruins e neutras que permaneceram
 printf("Solucao encontrada na rodada: ");
 display(countSf);
 printf("Resultado da melhor solucao: ");
