@@ -9,7 +9,7 @@ cont=1;
 countf=1;
 vetorsf=[];
 vetorsi=[];
-while  time < 60;
+while  time < 3;
   time=toc;
   %display(time);
   temp = 0.99*temp;
