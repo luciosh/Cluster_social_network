@@ -1,3 +1,11 @@
+% O problema resolvido no trabalho foi a clusterização de um grupo de pessoas,
+% visando otimizar a produtividade, buscando a melhor organização de forma qualidade
+% pessoas com boas relações trabalhem no mesmo grupo.
+% O método: as relações foram representadas como: -1 - relação negativa;
+% 0 - relação neutra, 1 - relação positiva.
+% a método de busca utilizado foi o Simulated Annealing.
+% Autores: Sérgio e Jadson
+% srg.lcns@gmail.com
 populacao = input("Escolha a quantidade de pessoas: ");
 grupos = input("Escolha a quantidade de grupos: ");
 tic
