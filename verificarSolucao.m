@@ -1,5 +1,4 @@
-clear
-clc
+%funcao que verifica qualidade da solucao encontrada fazendo a soma das relacoes
 function [qualidade] = verifSol(solucao,matriz)
   [grupos,pessoas]=size(solucao);
   soma=0;

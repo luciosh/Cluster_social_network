@@ -6,44 +6,64 @@
 % a método de busca utilizado foi o Simulated Annealing.
 % Autores: Sérgio e Jadson
 % srg.lcns@gmail.com
+
+%Input de dados
 populacao = input("Escolha a quantidade de pessoas: ");
 grupos = input("Escolha a quantidade de grupos: ");
+
+%Inicio de contagem de tempo de execucao
 tic
 time=0;
+
+%Criar solucao inicial
 [si,mRef] = criarSol(populacao,grupos);
 sf=si;
+%Inicializao de variavel temperatura
 temp = 100;
-cont=1;
-countf=1;
+%Inicializacao: Contador de estados passados e melhores solucoes,
+%vetores para armazenar estados
+contEstados=1;
+countSf=1;
 vetorsf=[];
 vetorsi=[];
+%Loop de busca de melhor solucao, configurar tempo de busca na condicao
 while  time < 3;
   time=toc;
   %display(time);
+  %reducao de temperatura a cada mudanca de estado
   temp = 0.99*temp;
+  %reaquecimento da temperatura
   if temp < 0.01
     temp = 100;
   endif
+  %criar solucao vizinha
   sv = solucaoVizinha(si);
+  %verifica a diferenca entre a solucao atual e a vizinha
   delta = verifSol(si,mRef) - verifSol(sv,mRef);
+  %verifica se deve aceitar ou nao uma solucao ṕior
   if delta < 0 || rand(1) < e^(-delta/temp)
     si = sv;
     verifSol(si,mRef);
   endif
+  %verifica se a solucao encontrada é melhor do que a atual
   if verifSol(sf,mRef)<verifSol(si,mRef)
     sf=si;
-    countf=cont;
+    countSf=contEstados;
   end
   %display([num2str(cont)," - ",num2str(verifSol(si,mRef))]);
-  vetorsi(cont)=verifSol(si,mRef);
-  vetorsf(cont)=verifSol(sf,mRef);
-  cont++;
+  %os vetores recebem as solucoes encontradas para que sejam plotados depois
+  vetorsi(contEstados)=verifSol(si,mRef);
+  vetorsf(contEstados)=verifSol(sf,mRef);
+  contEstados++;
 
 end
 toc
+%mostra os grupos formados da melhor solucao
 display(sf);
-display([num2str(countf)," - ",num2str(verifSol(sf,mRef))]);
+%mostra em qual rodada foi encontrada a melhor solucao e qual é o resultado
+display([num2str(countSf)," - ",num2str(verifSol(sf,mRef))]);
 
+%plota o grafico
 plot(vetorsi);
 hold on;
 plot(vetorsf);

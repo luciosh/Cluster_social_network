@@ -1,9 +1,9 @@
-clear
-clc
+% funcao que criar solucao inicial e a matriz aleatoria de referencia que
+% contem a relacao entre as pessoas
 function [matrizGrupos,matrizRef] = criarSol(populacao,grupos)
-  %criar matriz aleatória
+  % criar matriz aleatória com valores de 1 a 3
   matrizRef = randi(3,populacao,populacao);
-  %substituir valores aleatorios por -1,0,1.
+  % substituir valores aleatorios de 1 a 3 por -1,0,1.
   for i=1:populacao
     for j=1:populacao
       if(j>i)
