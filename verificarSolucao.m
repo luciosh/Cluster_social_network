@@ -11,5 +11,5 @@ function [qualidade] = verifSol(solucao,matriz)
     end
   end
   qualidade=soma;
-  display(soma);
+  %display(soma);
 end
