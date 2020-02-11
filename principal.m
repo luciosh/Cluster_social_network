@@ -79,6 +79,10 @@ display(rn);
 printf("Relações ruins: ");
 display(rr);
 %plota o grafico
-plot(vetorsi);
+close all
+plot(vetorsi,"k","linewidth",2);
+title("Estados x Solução");
+xlabel("Estados passados")
+ylabel("Qualidade da solução")
 hold on;
-plot(vetorsf);
+plot(vetorsf,"--r","linewidth",3);
