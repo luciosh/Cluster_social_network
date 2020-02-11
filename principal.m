@@ -6,6 +6,10 @@
 % a método de busca utilizado foi o Simulated Annealing.
 % Autores: Sérgio e Jadson
 % srg.lcns@gmail.com
+criar_si
+criar_sv
+verificarSolucao
+verifSolucaoFinal
 clear
 clc
 %Input de dados
