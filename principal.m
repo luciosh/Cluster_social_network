@@ -81,8 +81,8 @@ display(rr);
 %plota o grafico
 close all
 plot(vetorsi,"k","linewidth",2);
-title("Estados x Solução");
-xlabel("Estados passados")
-ylabel("Qualidade da solução")
+title("Estados x Solução","FontSize",25);
+xlabel("Estados passados","FontSize",25)
+ylabel("Qualidade da solução","FontSize",25)
 hold on;
 plot(vetorsf,"--r","linewidth",3);
