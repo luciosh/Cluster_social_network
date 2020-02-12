@@ -29,10 +29,11 @@ temp = 100;
 %vetores para armazenar estados
 contEstados=1;
 countSf=1;
+sfEstavel=0;
 vetorsf=[];
 vetorsi=[];
 %Loop de busca de melhor solucao, configurar tempo de busca na condicao
-while  time < 15;
+while  sfEstavel < 1500;
   time=toc;
   %display(time);
   %reducao de temperatura a cada mudanca de estado
@@ -53,6 +54,7 @@ while  time < 15;
   %verifica se a solucao encontrada é melhor do que a atual
   if verifSol(sf,mRef)<verifSol(si,mRef)
     sf=si;
+    sfEstavel=0;
     countSf=contEstados;
   end
   %display([num2str(cont)," - ",num2str(verifSol(si,mRef))]);
@@ -60,6 +62,7 @@ while  time < 15;
   vetorsi(contEstados)=verifSol(si,mRef);
   vetorsf(contEstados)=verifSol(sf,mRef);
   contEstados++;
+  sfEstavel++;
 
 end
 toc
