@@ -32,7 +32,7 @@ countSf=1;
 vetorsf=[];
 vetorsi=[];
 %Loop de busca de melhor solucao, configurar tempo de busca na condicao
-while  time < 3;
+while  time < 15;
   time=toc;
   %display(time);
   %reducao de temperatura a cada mudanca de estado
