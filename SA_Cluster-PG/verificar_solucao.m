@@ -1,4 +1,4 @@
-tamGp%funcao que verifica qualidade da solucao encontrada fazendo a soma das relacoes
+%funcao que verifica qualidade da solucao encontrada fazendo a soma das relacoes
 clear
 clc
 function [qualidade] = verifSol(solucao,matriz)

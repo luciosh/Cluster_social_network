@@ -1,6 +1,6 @@
 clear
 clc
-function [matrizGrupos,matrizRef] = criarMref(amostra,grupos)
+function [matrizRef] = criarMref(amostra,grupos)
   % criar matriz aleatória com valores de 1 a 3
   matrizRef = randi(3,amostra,amostra);
   % substituir valores aleatorios de 1 a 3 por -1,0,1.
