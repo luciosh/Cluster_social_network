@@ -8,7 +8,6 @@ function[pop] = criarPop(amostra,grupos,tamPop,mRef)
 
   pop={};
   for iter=1:tamPop
-    iter
     matrizGrupos=zeros(grupos,tamGp);
     sorteados=zeros();
     count=2;
@@ -26,10 +25,8 @@ function[pop] = criarPop(amostra,grupos,tamPop,mRef)
         count++;
       endfor
     endfor
-    iter
-    pop(1,iter)=matrizGrupos;
-    pop(2,iter)=verifSol(matrizGrupos,mRef);
-    iter
+    pop{iter}.ind=matrizGrupos;
+    pop{iter}.fit=verifSol(matrizGrupos,mRef);
   endfor
   display(pop);
 end
