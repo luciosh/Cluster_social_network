@@ -1,6 +1,6 @@
 clear
 clc
-function[selecionados] = torneio(pop,tamSelecao,nSelecionados)
+function [selecionados] = torneio(pop,tamSelecao,nSelecionados)
 
 %Selecao por torneio
 aux = zeros(1,tamSelecao);

@@ -11,6 +11,8 @@ criar_mat_ref
 selecao_torneio
 verificar_solucao
 verifSolucaoFinal
+cruzamento_pop
+
 clear
 clc
 %Input de dados
@@ -34,3 +36,4 @@ nSelecionados = 2;
 selecionados = torneio(pop,tamSelecao,nSelecionados);
 
 %Cruzamento entre selecionados
+popCrz = cruzamento(selecionados,tamPop,1,mRef);
