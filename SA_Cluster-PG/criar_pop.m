@@ -28,5 +28,4 @@ function[pop] = criarPop(amostra,grupos,tamPop,mRef)
     pop{iter}.ind=matrizGrupos;
     pop{iter}.fit=verifSol(matrizGrupos,mRef);
   endfor
-  display(pop);
 end

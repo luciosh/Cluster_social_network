@@ -12,6 +12,7 @@ selecao_torneio
 verificar_solucao
 verifSolucaoFinal
 cruzamento_pop
+ordenar_pop
 
 clear
 clc
@@ -19,7 +20,12 @@ clc
 amostra = input("Escolha a quantidade de pessoas: ");
 grupos = input("Escolha a quantidade de grupos: ");
 tamPop = input("Escolha o tamanho da populacao inicial: ");
-tamSelecao = 10;
+txCruzamento = input("Escolha taxa de cruzamento: ");
+tamSelecao = round(tamPop/4);
+
+if mod(txCruzamento,2) == 1
+ txCruzamento+=1;
+end
 
 %Inicio de contagem de tempo de execucao
 tic
@@ -33,7 +39,16 @@ time=0;
 
 %selecao torneio
 nSelecionados = 2;
-selecionados = torneio(pop,tamSelecao,nSelecionados);
-
+popOrd = ordenar(pop);
+selecionados = torneio(pop,popOrd,tamSelecao,nSelecionados);
 %Cruzamento entre selecionados
-popCrz = cruzamento(selecionados,tamPop,1,mRef);
+popCrz = cruzamento(selecionados,tamPop,txCruzamento,mRef);
+
+%adicionar cruzamento a populacao
+ i=length(popOrd);
+ for j=1:length(popCrz)
+     i++;
+    popOrd{i}.ind=popCrz{j}.ind;
+    popOrd{i}.fit=popCrz{j}.fit;
+ end
+ popOrd=ordenar(popOrd);
