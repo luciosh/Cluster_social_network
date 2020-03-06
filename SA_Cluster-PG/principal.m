@@ -10,14 +10,14 @@ criar_pop
 criar_mat_ref
 selecao_torneio
 verificar_solucao
-verifSolucaoFinal
+verif_solucao_final
 cruzamento_pop
 ordenar_pop
 mutar_pop
 mutar_ind
 incrementar_pop
 atualizar_pop
-
+tic
 clear
 clc
 %Input de dados
@@ -33,14 +33,18 @@ if mod(txCruzamento,2) == 1
 end
 
 %Criar matriz de referencia e populacao inicial
-[mRef] = criarMref(amostra,grupos);
+%[mRef] = criarMref(amostra,grupos);
+load("matrizReferenciaFixa.m");
+mRef = matrizReferencia;
 [pop] = criarPop(amostra,grupos,tamPop,mRef);
 
 campeao{1}.fit = pop{1}.fit;
 campeao{1}.ind = pop{1}.ind;
 
-stableMax = 150;
+stableMax = 3;
 stable=0;
+geracoes=1;
+historicoPop1 = [];
 while (stable<stableMax)
   popOrd = ordenar(pop);
   %criterio de parada
@@ -67,5 +71,11 @@ while (stable<stableMax)
    %atualizar populacao
    popAt = atualizarPop(popOrd,tamPop);
    pop=popAt;
+   historicoPop1(geracoes) = pop{1}.fit;
+   geracoes++;
 end
+geracoes
 campeao
+verifSolF(campeao{1}.ind,mRef);
+plot(historicoPop1);
+toc

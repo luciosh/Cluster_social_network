@@ -24,5 +24,8 @@ function [qualidade,rb,rn,rr] = verifSolF(solucao,matriz)
     end
   end
   qualidade=soma;
+  rr
+  rn
+  rb
   %display(soma);
 end
