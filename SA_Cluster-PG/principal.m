@@ -13,6 +13,10 @@ verificar_solucao
 verifSolucaoFinal
 cruzamento_pop
 ordenar_pop
+mutar_pop
+mutar_ind
+incrementar_pop
+atualizar_pop
 
 clear
 clc
@@ -20,35 +24,48 @@ clc
 amostra = input("Escolha a quantidade de pessoas: ");
 grupos = input("Escolha a quantidade de grupos: ");
 tamPop = input("Escolha o tamanho da populacao inicial: ");
-txCruzamento = input("Escolha taxa de cruzamento: ");
-tamSelecao = round(tamPop/4);
+txCruzamento = round((25/100)*tamPop); %aumento pop apos cruzamento
+tamSelecao = round((15/100)*tamPop); %selecao torneio
+
 
 if mod(txCruzamento,2) == 1
  txCruzamento+=1;
 end
 
-%Inicio de contagem de tempo de execucao
-tic
-time=0;
-
 %Criar matriz de referencia e populacao inicial
 [mRef] = criarMref(amostra,grupos);
 [pop] = criarPop(amostra,grupos,tamPop,mRef);
 
-%criterio de parada
+campeao{1}.fit = pop{1}.fit;
+campeao{1}.ind = pop{1}.ind;
 
-%selecao torneio
-nSelecionados = 2;
-popOrd = ordenar(pop);
-selecionados = torneio(pop,popOrd,tamSelecao,nSelecionados);
-%Cruzamento entre selecionados
-popCrz = cruzamento(selecionados,tamPop,txCruzamento,mRef);
+stableMax = 150;
+stable=0;
+while (stable<stableMax)
+  popOrd = ordenar(pop);
+  %criterio de parada
+  if(pop{1}.fit>campeao{1}.fit)
+    campeao{1}.fit = pop{1}.fit;
+    campeao{1}.ind = pop{1}.ind;
+    stable = 0;
+  else
+    stable++;
+  end
+  %selecao torneio
+  nSelecionados = 2;
+  selecionados = torneio(pop,popOrd,tamSelecao,nSelecionados);
+  %Cruzamento entre selecionados
+  popCrz = cruzamento(selecionados,tamPop,txCruzamento,mRef);
 
-%adicionar cruzamento a populacao
- i=length(popOrd);
- for j=1:length(popCrz)
-     i++;
-    popOrd{i}.ind=popCrz{j}.ind;
-    popOrd{i}.fit=popCrz{j}.fit;
- end
- popOrd=ordenar(popOrd);
+  %adicionar cruzamento a populacao
+   popOrd = incrementarPop(popOrd,popCrz);
+   [~,tamPopOrd] = size(popOrd);
+   txMutacao = round((10/100)*tamPopOrd); %quantidade de mutacoes que serao feitas
+   popMut = mutarPop(popOrd,txMutacao,tamPopOrd,mRef);
+   popOrd = incrementarPop(popOrd,popMut);
+
+   %atualizar populacao
+   popAt = atualizarPop(popOrd,tamPop);
+   pop=popAt;
+end
+campeao
