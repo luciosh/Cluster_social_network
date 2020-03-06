@@ -22,6 +22,8 @@ time=0;
 
 %Criar solucao inicial
 [si,mRef] = criarSol(populacao,grupos);
+load("matrizReferenciaFixa.m");
+mRef = matrizReferencia;
 sf=si;
 %Inicializao de variavel temperatura
 temp = 100;
