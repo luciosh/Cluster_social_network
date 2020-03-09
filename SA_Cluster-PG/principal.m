@@ -35,13 +35,13 @@ end
 %Criar matriz de referencia e populacao inicial
 %[mRef] = criarMref(amostra,grupos);
 load("matrizReferenciaFixa.m");
-mRef = matrizReferencia;
+mRef = mRef;
 [pop] = criarPop(amostra,grupos,tamPop,mRef);
 
 campeao{1}.fit = pop{1}.fit;
 campeao{1}.ind = pop{1}.ind;
 
-stableMax = 3;
+stableMax = 100;
 stable=0;
 geracoes=1;
 historicoPop1 = [];
