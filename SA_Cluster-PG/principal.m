@@ -36,12 +36,13 @@ end
 %[mRef] = criarMref(amostra,grupos);
 load("matrizReferenciaFixa.m");
 mRef = mRef;
+[mRef] = criarMref(amostra,grupos);
 [pop] = criarPop(amostra,grupos,tamPop,mRef);
 
 campeao{1}.fit = pop{1}.fit;
 campeao{1}.ind = pop{1}.ind;
 
-stableMax = 100;
+stableMax = 1000;
 stable=0;
 geracoes=1;
 historicoPop1 = [];
