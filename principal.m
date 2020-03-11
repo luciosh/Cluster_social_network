@@ -24,7 +24,7 @@ time=0;
 [si,mRef] = criarSol(populacao,grupos);
 load("matrizReferenciaFixa.m");
 mRef = mRef;
-[mRef] = criarMref(amostra,grupos);
+[mRef] = criarMref(populacao,grupos);
 sf=si;
 %Inicializao de variavel temperatura
 temp = 100;
