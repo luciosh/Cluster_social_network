@@ -36,7 +36,7 @@ end
 %[mRef] = criarMref(amostra,grupos);
 load("matrizReferenciaFixa.m");
 mRef = mRef;
-[mRef] = criarMref(amostra,grupos);
+%[mRef] = criarMref(amostra,grupos);
 [pop] = criarPop(amostra,grupos,tamPop,mRef);
 
 campeao{1}.fit = pop{1}.fit;

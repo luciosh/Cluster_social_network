@@ -24,7 +24,6 @@ time=0;
 [si,mRef] = criarSol(populacao,grupos);
 load("matrizReferenciaFixa.m");
 mRef = mRef;
-[mRef] = criarMref(populacao,grupos);
 sf=si;
 %Inicializao de variavel temperatura
 temp = 100;
@@ -36,7 +35,7 @@ sfEstavel=0;
 vetorsf=[];
 vetorsi=[];
 %Loop de busca de melhor solucao, configurar tempo de busca na condicao
-while  sfEstavel < 3000;
+while  sfEstavel < 1000;
   time=toc;
   %display(time);
   %reducao de temperatura a cada mudanca de estado
