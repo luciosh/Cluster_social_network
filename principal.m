@@ -35,7 +35,7 @@ sfEstavel=0;
 vetorsf=[];
 vetorsi=[];
 %Loop de busca de melhor solucao, configurar tempo de busca na condicao
-while  sfEstavel < 3000;
+while  sfEstavel < 1000;
   time=toc;
   %display(time);
   %reducao de temperatura a cada mudanca de estado

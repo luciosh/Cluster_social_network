@@ -78,4 +78,4 @@ geracoes
 campeao
 verifSolF(campeao{1}.ind,mRef);
 plot(historicoPop1);
-toc
+toc/60
